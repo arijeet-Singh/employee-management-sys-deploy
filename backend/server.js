@@ -23,7 +23,9 @@ app.use((req, res, next) => {
   next();
 });
 app.use("/api", router);
-
+app.get("/", (req, res) => {
+  res.send("Server");
+});
 app.use("/upload", express.static(path.join(__dirname, "/../uploads")));
 app.use(express.static(path.join(__dirname, "/../frontend/build")));
 app.get("*", (req, res) => {
